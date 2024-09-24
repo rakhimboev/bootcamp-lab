@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Avenue Neighbors</title>
+  </head>
+  <body>
+    <header>
+      <h1>Avenue M Noticeboard</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="gallery">
+      <div class="txt">
+        <h1>Here you can enjoy the breathtaking views of New York City</h1>
+      </div>
+      <div class="photos">
+        <ul id="photoList">
+          <!-- <li>
+            <img class="photo" src="images/week3/1.jpg" alt="1" />
+            <div class="caption">to down</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/2.jpg" alt="2" />
+            <div class="caption">winter</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/3.jpg" alt="3" />
+            <div class="caption">squarrel</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/4.jpg" alt="4" />
+            <div class="caption">forest</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/5.jpg" alt="5" />
+            <div class="caption">the horse power</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/6.jpg" alt="6" />
+            <div class="caption">the view</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/7.jpg" alt="7" />
+            <div class="caption">sunset</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/8.jpg" alt="8" />
+            <div class="caption">downtown</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/9.jpg" alt="9" />
+            <div class="caption">rainy</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/10.jpg" alt="10" />
+            <div class="caption">statue of liberty</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/11.jpg" alt="11" />
+            <div class="caption">at night</div>
+          </li>
+          <li>
+            <img class="photo" src="images/week3/12.jpg" alt="12" />
+            <div class="caption">the fall</div>
+          </li> -->
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <p class="copy">&copy; Copyright of avenuem.com 2024</p>
+      <p>
+        This website is designed and created solely for educational purposes
+        only at Westcliff University. All contents are not intended for any
+        commercial gain or use.
+      </p>
+    </footer>
+    <script>
+      var imagesData = [
+        { src: "week3/1.jpg", caption: "to down", desc: "The NYC view" },
+        { src: "week3/2.jpg", caption: "winter", desc: "Winter Wonderland" },
+        {
+          src: "week3/3.jpg",
+          caption: "squarrel",
+          desc: "Squirrel in the park",
+        },
+        { src: "week3/4.jpg", caption: "forest", desc: "Forest Scenery" },
+        { src: "week3/5.jpg", caption: "the horse power", desc: "Horse Power" },
+        { src: "week3/6.jpg", caption: "the view", desc: "City View" },
+        { src: "week3/7.jpg", caption: "sunset", desc: "Stunning Sunset" },
+        { src: "week3/8.jpg", caption: "downtown", desc: "Downtown NYC" },
+        { src: "week3/9.jpg", caption: "rainy", desc: "Rainy Day" },
+        {
+          src: "week3/10.jpg",
+          caption: "statue of liberty",
+          desc: "Statue of Liberty",
+        },
+        { src: "week3/11.jpg", caption: "at night", desc: "NYC at Night" },
+        { src: "week3/12.jpg", caption: "the fall", desc: "The Fall Colors" },
+      ];
+
+      var imageList = imagesData.map(function (imageData) {
+        return (
+          "<li>" +
+          '<img class="photo" src="images/' +
+          imageData.src +
+          '" alt="' +
+          imageData.caption +
+          '" />' +
+          '<div class="caption">' +
+          imageData.caption +
+          "</div>" +
+          '<div class="desc">' +
+          imageData.desc +
+          "</div>" +
+          "</li>"
+        );
+      });
+
+      document.getElementById("photoList").innerHTML = imageList.join(" ");
+    </script>
+  </body>
+</html>
