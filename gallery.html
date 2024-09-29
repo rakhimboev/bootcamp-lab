@@ -24,55 +24,15 @@
       </div>
       <div class="photos">
         <ul id="photoList">
-          <!-- <li>
-            <img class="photo" src="images/week3/1.jpg" alt="1" />
-            <div class="caption">to down</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/2.jpg" alt="2" />
-            <div class="caption">winter</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/3.jpg" alt="3" />
-            <div class="caption">squarrel</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/4.jpg" alt="4" />
-            <div class="caption">forest</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/5.jpg" alt="5" />
-            <div class="caption">the horse power</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/6.jpg" alt="6" />
-            <div class="caption">the view</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/7.jpg" alt="7" />
-            <div class="caption">sunset</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/8.jpg" alt="8" />
-            <div class="caption">downtown</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/9.jpg" alt="9" />
-            <div class="caption">rainy</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/10.jpg" alt="10" />
-            <div class="caption">statue of liberty</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/11.jpg" alt="11" />
-            <div class="caption">at night</div>
-          </li>
-          <li>
-            <img class="photo" src="images/week3/12.jpg" alt="12" />
-            <div class="caption">the fall</div>
-          </li> -->
+          <!-- Images will be dynamically inserted here -->
         </ul>
+      </div>
+
+      <!-- Information Box Structure -->
+      <div id="infoBox">
+        <h3 id="infoTitle"></h3>
+        <p id="infoText"></p>
+        <span id="closeBox">click this to Close</span>
       </div>
     </main>
     <footer>
@@ -85,26 +45,78 @@
     </footer>
     <script>
       var imagesData = [
-        { src: "week3/1.jpg", caption: "to down", desc: "The NYC view" },
-        { src: "week3/2.jpg", caption: "winter", desc: "Winter Wonderland" },
+        {
+          src: "week3/1.jpg",
+          caption: "To Down",
+          desc: "The NYC view",
+          info: "A breathtaking view of NYC from above.",
+        },
+        {
+          src: "week3/2.jpg",
+          caption: "Winter",
+          desc: "Winter Wonderland",
+          info: "A snowy wonderland in Central Park.",
+        },
         {
           src: "week3/3.jpg",
-          caption: "squarrel",
-          desc: "Squirrel in the park",
+          caption: "Squirrel",
+          desc: "Squirrel in the Park",
+          info: "A cute squirrel playing in the park.",
         },
-        { src: "week3/4.jpg", caption: "forest", desc: "Forest Scenery" },
-        { src: "week3/5.jpg", caption: "the horse power", desc: "Horse Power" },
-        { src: "week3/6.jpg", caption: "the view", desc: "City View" },
-        { src: "week3/7.jpg", caption: "sunset", desc: "Stunning Sunset" },
-        { src: "week3/8.jpg", caption: "downtown", desc: "Downtown NYC" },
-        { src: "week3/9.jpg", caption: "rainy", desc: "Rainy Day" },
+        {
+          src: "week3/4.jpg",
+          caption: "Forest",
+          desc: "Forest Scenery",
+          info: "The serene beauty of the forest in fall.",
+        },
+        {
+          src: "week3/5.jpg",
+          caption: "Horse Power",
+          desc: "The Horse Power",
+          info: "A majestic horse galloping across the field.",
+        },
+        {
+          src: "week3/6.jpg",
+          caption: "View",
+          desc: "City View",
+          info: "A panoramic view of the New York skyline.",
+        },
+        {
+          src: "week3/7.jpg",
+          caption: "Sunset",
+          desc: "Stunning Sunset",
+          info: "A stunning sunset over the city.",
+        },
+        {
+          src: "week3/8.jpg",
+          caption: "Downtown",
+          desc: "Downtown NYC",
+          info: "The hustle and bustle of downtown New York.",
+        },
+        {
+          src: "week3/9.jpg",
+          caption: "Rainy",
+          desc: "Rainy Day",
+          info: "A peaceful rainy day in the city.",
+        },
         {
           src: "week3/10.jpg",
-          caption: "statue of liberty",
-          desc: "Statue of Liberty",
+          caption: "Statue of Liberty",
+          desc: "The Statue of Liberty",
+          info: "An iconic symbol of freedom and democracy.",
         },
-        { src: "week3/11.jpg", caption: "at night", desc: "NYC at Night" },
-        { src: "week3/12.jpg", caption: "the fall", desc: "The Fall Colors" },
+        {
+          src: "week3/11.jpg",
+          caption: "Night",
+          desc: "NYC at Night",
+          info: "New York City shining bright at night.",
+        },
+        {
+          src: "week3/12.jpg",
+          caption: "Fall",
+          desc: "The Fall Colors",
+          info: "The vibrant fall colors of the city parks.",
+        },
       ];
 
       var imageList = imagesData.map(function (imageData) {
@@ -117,15 +129,32 @@
           '" />' +
           '<div class="caption">' +
           imageData.caption +
-          "</div>" +
-          '<div class="desc">' +
+          "</div>" + // Keep the caption
+          '<div class="desc" onclick="showInfoBox(\'' +
+          imageData.caption +
+          "', '" +
+          imageData.info +
+          "')\">" +
           imageData.desc +
-          "</div>" +
+          "</div>" + // Add clickable description
           "</li>"
         );
       });
 
+      // Insert the dynamically created list of images into the DOM
       document.getElementById("photoList").innerHTML = imageList.join(" ");
+
+      // Function to show the information box
+      function showInfoBox(title, info) {
+        document.getElementById("infoTitle").innerText = title;
+        document.getElementById("infoText").innerText = info;
+        document.getElementById("infoBox").style.display = "block"; // Show info box
+      }
+
+      // Function to hide the information box
+      document.getElementById("closeBox").onclick = function () {
+        document.getElementById("infoBox").style.display = "none"; // Hide info box
+      };
     </script>
   </body>
 </html>

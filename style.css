@@ -184,9 +184,59 @@ footer .copy {
   width: 250px;
   color: #000;
   font-size: 15px;
-  font-family: 'Times New Roman', Times, serif;
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .photos li:hover .desc {
   display: block;
+}
+
+/* Information Box CSS */
+#infoBox {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 20px 0 70px 0;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 3%;
+  text-align: center;
+  width: 350px;
+  font-family: "Times New Roman", Times, serif;
+  z-index: 100;
+}
+
+#infoBox h3 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  margin: 10px 0;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+#infoBox #infoText {
+  width: 350px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+#infoBox span {
+  font-family: "Times New Roman", Times, serif;
+  color: #c9db27;
+  border: none;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#infoBox span:hover {
+  text-decoration: underline;
+}
+
+#infoBox {
+  transition: all 0.3s ease-in-out;
 }
