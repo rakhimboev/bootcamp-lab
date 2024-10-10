@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="js/contact.js" defer></script>
     <title>Avenue Neighbors</title>
   </head>
   <body>
@@ -26,32 +27,22 @@
             <legend>User Personal Information</legend>
             <label>Enter your full name:</label>
             <input type="text" name="name" />
-            <label>Enter your email:</label>
-            <input type="email" name="email" />
-            <label>Enter your phone:</label>
-            <input type="tel" name="phone" />
-            <label>Enter your address:</label>
-            <input type="text" name="address" />
             <label>Select your gender:</label><br />
             <input type="radio" name="gender" value="male" />Male
             <input type="radio" name="gender" value="female" />Female
-            <label>Number of people in your household?</label><br />
-            <select>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6+</option>
-            </select>
             <label>How should we contact you?</label><br />
-            <select>
-              <option>Email</option>
-              <option>Phone</option>
+            <select id="contact-method">
+              <option>Select One</option>
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
             </select>
-            <label>Any suggestions to help our community:</label>
+            <label id="email-label">Enter your email:</label>
+            <input type="email" name="email" id="email-input" />
+            <label id="phone-label">Enter your phone:</label>
+            <input type="tel" name="phone" id="phone-input" />
+            <label>Tell us the reason for your visit today:</label>
             <textarea rows="5" cols="30"></textarea>
-            <input type="submit" value="Sign Up" />
+            <input type="submit" value="sign-up" />
           </fieldset>
         </form>
         <img src="images/ave.jpg" alt="ave" width="50%" />
