@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Avenue Neighbors</title>
   </head>
   <body>
@@ -33,6 +34,11 @@
         <h3 id="infoTitle"></h3>
         <p id="infoText"></p>
         <span id="closeBox">click this to Close</span>
+      </div>
+
+      <div class="backdrop"></div>
+      <div class="box">
+        <div class="close">x</div>
       </div>
     </main>
     <footer>
@@ -129,32 +135,48 @@
           '" />' +
           '<div class="caption">' +
           imageData.caption +
-          "</div>" + // Keep the caption
+          "</div>" +
           '<div class="desc" onclick="showInfoBox(\'' +
           imageData.caption +
           "', '" +
           imageData.info +
           "')\">" +
           imageData.desc +
-          "</div>" + // Add clickable description
+          "</div>" +
           "</li>"
         );
       });
 
-      // Insert the dynamically created list of images into the DOM
       document.getElementById("photoList").innerHTML = imageList.join(" ");
 
-      // Function to show the information box
       function showInfoBox(title, info) {
         document.getElementById("infoTitle").innerText = title;
         document.getElementById("infoText").innerText = info;
-        document.getElementById("infoBox").style.display = "block"; // Show info box
+        document.getElementById("infoBox").style.display = "block";
       }
 
-      // Function to hide the information box
       document.getElementById("closeBox").onclick = function () {
-        document.getElementById("infoBox").style.display = "none"; // Hide info box
+        document.getElementById("infoBox").style.display = "none";
       };
+
+      //  lightbox   
+      $("#photoList img.photo").click(function () {
+        $(".backdrop")
+          .css("display", "block")
+          .animate({ opacity: "0.50" }, 300);
+        $(".box").fadeIn();
+        $(".box").find("img").remove();
+
+        var img = $(this).clone();
+        $(".box").append(img);
+      });
+
+      $(".close, .backdrop").click(function () {
+        $(".backdrop").animate({ opacity: "0" }, 300, function () {
+          $(this).css("display", "none");
+        });
+        $(".box").fadeOut();
+      });
     </script>
   </body>
 </html>
